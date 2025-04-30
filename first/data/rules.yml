@@ -13,35 +13,45 @@ rules:
 
   - rule: "Preguntar por ingredientes"
     steps:
-      - intent: ingredientes
-      - action: utter_ingredientes
+      - intent: preguntar_ingredientes
+      - action: action_lista_compras
 
   - rule: "Preguntar por valor nutricional"
     steps:
-      - intent: valornutricional
-      - action: utter_valor_nutricional
-
-  - rule: "Preguntar por restricciones"
-    steps:
-      - intent: restricciones
-      - action: utter_restricciones
-
-  - rule: "Preguntar por sabores"
-    steps:
-      - intent: sabores
-      - action: utter_sabores
+      - intent: preguntar_valornutricional
+      - action: action_info_nutricional
 
   - rule: "Lista de compras"
     steps:
       - intent: listacompras
-      - action: utter_listacompras
+      - action: action_lista_compras
 
   - rule: "Cantidad de platos"
     steps:
-      - intent: num_platos
+      - intent: cantidad_platos
       - action: utter_cantidad_platos
 
   - rule: "Soy chef"
     steps:
       - intent: bot_challenge
       - action: utter_iamabot
+
+  - rule: "Recomendar plato con ingredientes"
+    steps:
+      - intent: platos
+      - action: action_recomendar_plato
+
+  - rule: "Recomendar receta por dieta"
+    steps:
+      - intent: pedir_receta
+      - action: action_recomendar_receta
+
+  - rule: "Meal prep semanal"
+    steps:
+      - intent: pedir_meal_prep
+      - action: action_meal_prep_semanal
+
+  - rule: Respuesta por defecto si no se entiende
+    steps:
+      - intent: nlu_fallback
+      - action: utter_fallback

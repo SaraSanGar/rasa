@@ -1,7 +1,32 @@
 version: "3.1"
 
 stories:
-  - story: platos
+  - story: Recomendación de plato con ingredientes
     steps:
       - intent: platos
       - action: action_recomendar_plato
+
+  - story: Recomendación de receta según dieta
+    steps:
+      - intent: pedir_receta
+      - action: action_recomendar_receta
+
+  - story: Meal prep semanal
+    steps:
+      - intent: pedir_meal_prep
+      - action: action_meal_prep_semanal
+
+  - story: Consulta de valor nutricional
+    steps:
+      - intent: preguntar_valornutricional
+      - action: action_info_nutricional
+
+  - story: Lista de compras para un plato
+    steps:
+      - intent: listacompras
+      - action: action_lista_compras
+
+  - story: Preguntar ingredientes necesarios
+    steps:
+      - intent: preguntar_ingredientes
+      - action: action_lista_compras

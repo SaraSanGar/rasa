@@ -20,6 +20,13 @@ nlu:
       - leche
       - pan
       - queso
+      - champiñones
+      - nata
+      - garbanzos
+      - berenjena
+      - hummus
+      - rúcula
+      - tofu
 
   - lookup: dieta
     examples: |
@@ -43,7 +50,7 @@ nlu:
       - verduras a la plancha
       - ensalada césar
       - carne en salsa de zanahoria
-      - Pescado a la plancha
+      - pescado a la plancha
       - potaje de lentejas
 
   - lookup: sabor
@@ -59,137 +66,100 @@ nlu:
       - suave
       - intenso
 
-  - regex: num_platos
+  - regex: numero_platos
     examples: |
       - (?i)\b(?:\d+|un|una|dos|tres|cuatro|cinco|seis|siete|ocho|nueve|diez)\b
-      
+
   - intent: preguntar_ingredientes
     examples: |
-      - Necesito ingredientes para (ingredientes)
-      - ¿Qué ingredientes necesito para (ingredientes)?
-      - ¿Cuáles son los ingredientes para (ingredientes)?
-      - ¿Qué ingredientes son necesarios para (ingredientes)?
-      - ¿Qué ingredientes debo comprar para (ingredientes)?
-      - ¿Qué ingredientes tengo que usar para (ingredientes)?
-      - ¿Qué ingredientes son imprescindibles para (ingredientes)?
-      - ¿Qué ingredientes son esenciales para (ingredientes)?
-      - ¿Qué ingredientes son recomendables para (ingredientes)?
+      - ¿Qué ingredientes necesito para [pasta al pesto](platos)?
+      - ¿Qué ingredientes lleva una [ensalada césar](platos)?
+      - ¿Qué debo comprar para hacer [paella](platos)?
+      - ¿Qué necesito si quiero preparar [potaje de lentejas](platos)?
+      - ¿Qué ingredientes hacen falta para [pollo empanado](platos)?
+      - Hazme una lista de compras para [ensalada césar](platos)
+      - ¿Qué tengo que comprar para hacer [pasta al pesto](platos)?
 
   - intent: preguntar_valornutricional
     examples: |
-      - ¿Qué valor nutricional tiene la (ingredientes|platos)?
-      - ¿Cuántas calorías tiene la (ingredientes|platos)?
-      - ¿Cuántas proteínas tiene la (ingredientes|platos)?
-      - ¿Cuántos carbohidratos tiene la (ingredientes|platos)?
-      - ¿Cuántas grasas tiene la (ingredientes|platos)?
-      - ¿Cuántas vitaminas tiene la (ingredientes|platos)?
-      - ¿Cuántos minerales tiene la (ingredientes|platos)?
-      - ¿Cuántas fibras tiene la (ingredientes|platos)?
-      - ¿Cuántas azúcares tiene la (ingredientes|platos)?
-
-  - intent: preguntar_restricciones
-    examples: |
-      - Tengo alergia a los (ingredientes)
-      - Soy alérgico a los (ingredientes)
-      - Soy intolerante a la (ingredientes)
-      - No puedo comer (ingredientes)
-      - No me gusta el pescado
-      - No me gusta el (ingredientes)
-
-  - intent: preguntar_sabores
-    examples: |
-      - Me gusta el sabor (sabor)
-      - Prefiero el sabor (sabor)
-      - Me encanta el sabor (sabor)
-      - Quiero un plato (sabor)
+      - ¿Qué valor nutricional tiene el [tomate](ingrediente)?
+      - ¿Cuántas calorías tiene el [queso](ingrediente)?
+      - ¿Cuántas proteínas tiene la [lenteja](ingrediente)?
+      - ¿Cuántos carbohidratos tiene una [paella](platos)?
+      - ¿Cuántas grasas tiene el [huevo](ingrediente)?
+      - ¿Qué nutrientes tiene la [pasta al pesto](platos)?
+      - ¿Cómo es el valor nutricional del [potaje de lentejas](platos)?
+      - ¿Qué contiene nutricionalmente una [ensalada césar](platos)?
 
   - intent: listacompras
     examples: |
-      - Dame una lista de compras para [pasta al pesto] (platos)
-      - ¿Cuál sería la lista de compras para una [ensalada césar] (platos)?
-      - ¿Qué ingredientes ocupo para una lista de compras para una [paella] (platos)?
-      - ¿Qué necesito comprar para hacer [pollo empanado] (platos)?
-      - Hazme una lista de compras para preparar [pescado al horno] (platos).
-      - ¿Qué tengo que llevar del súper si quiero hacer [verduras a la plancha] (platos)?
-      - ¿Qué debo echar en el carrito para hacer [carne en salsa de zanahoria] (platos)?
-      - Pásame el súper para hacer un [potaje de lentejas] (platos).
-      - Quiero cocinar [pescado a la plancha] (platos) esta noche, ¿qué ingredientes debería comprar?
+      - Dame una lista de compras para [pasta al pesto](platos)
+      - ¿Qué ingredientes necesito para preparar [paella](platos)?
+      - Hazme la lista de la compra para hacer [pollo empanado](platos)
+      - ¿Qué tengo que comprar para cocinar [potaje de lentejas](platos)?
+      - ¿Qué ingredientes hacen falta para preparar [ensalada césar](platos)?
 
   - intent: cantidad_platos
     examples: |
       - Quiero [3](numero_platos) platos
-      - Quiero [cuatro](numero_platos) platos
-      - Necesito [un](numero_platos) plato
-      - Me gustarían [diez](numero_platos) platos
+      - Necesito [cuatro](numero_platos) platos
+      - Me gustaría preparar [un](numero_platos) plato
 
   - intent: platos
     examples: |
-      - Tengo algunos ingredientes pero no sé qué hacer con ellos.
-      - Dime una receta.
-      - Recomiéndame un plato que pueda cocinar.
-      - Sugiéreme algo para cocinar con lo que tengo en casa.
+      - Tengo algunos ingredientes pero no sé qué hacer con ellos
+      - Dime una receta
+      - Recomiéndame un plato que pueda cocinar
       - ¿Qué puedo cocinar con estos ingredientes?
-      - ¿Qué puedo preparar para cenar con estos ingredientes?
       - Tengo [pan](ingrediente), [queso](ingrediente) y [tomate](ingrediente), ¿qué puedo hacer?
-      - Dime un plato con [berenjena](ingrediente) y [aceite de oliva](ingrediente).
       - ¿Qué recetas puedo hacer con [garbanzos](ingrediente)?
       - ¿Qué puedo preparar con [champiñones](ingrediente) y [nata](ingrediente)?
-      - ¿Qué puedo cocinar con [arroz](ingrediente), [huevo](ingrediente) y [espinacas](ingrediente)?
+
+  - intent: pedir_receta
+    examples: |
+      - Recomiéndame una receta [vegana](dieta)
+      - ¿Qué puedo cocinar si soy [vegetariano](dieta)?
+      - Dame una receta [sin gluten](dieta)
+
+  - intent: pedir_meal_prep
+    examples: |
+      - Quiero un meal prep semanal para dieta [cetogénica](dieta)
+      - ¿Qué puedo comer esta semana si soy [vegana](dieta)?
+      - Plan semanal con [garbanzos](ingrediente) y dieta [mediterránea](dieta)
 
   - intent: saludar
     examples: |
       - hola
-      - buenas
-      - hey
-      - hola qué tal
       - buenos días
-      - buenas noches
       - buenas tardes
       - qué onda
-      - vamos allá
       - qué pasa amigo
-      - buen día
-      - buenas tardes
-      - muy buenas
-  
+
   - intent: despedir
     examples: |
       - nos vemos
       - adiós
       - hasta luego
-      - buenas noches
       - chau
       - que tengas un buen día
-      - nos vemos por ahí
-      - chao chao
-      - hasta pronto
-  
+
   - intent: afirmar
     examples: |
       - sí
       - claro
       - por supuesto
       - correcto
-      - eso suena bien
-      - afirmativo
-  
+
   - intent: negar
     examples: |
       - no
       - para nada
-      - nunca
       - no lo creo
       - no me gusta eso
-      - ni hablar
-      - realmente no
 
   - intent: bot_challenge
     examples: |
       - ¿Eres un robot?
       - ¿Eres un asistente virtual?
       - ¿Eres un chatbot?
-      - ¿Eres una inteligencia artificial?
-      - ¿eres un bot?
-      - ¿eres un humano?
       - ¿estoy hablando con un bot?
-      - ¿estoy hablando con un humano?

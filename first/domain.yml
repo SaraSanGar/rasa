@@ -2,11 +2,10 @@ version: "3.1"
 
 intents:
   - dieta
-  - receta
-  - ingredientes
-  - valornutricional
-  - restricciones
-  - sabores
+  - pedir_receta
+  - pedir_meal_prep
+  - preguntar_ingredientes
+  - preguntar_valornutricional
   - listacompras
   - cantidad_platos
   - platos
@@ -15,15 +14,23 @@ intents:
   - afirmar
   - negar
   - bot_challenge
+  - nlu_fallback
 
 entities:
   - ingrediente
   - platos
   - sabor
   - num_platos
+  - dieta
+  - nutriente
 
 actions:
   - action_recomendar_plato
+  - action_recomendar_receta
+  - action_info_nutricional
+  - action_meal_prep_semanal
+  - action_lista_compras
+  - utter_fallback
 
 slots:
   ingrediente:
@@ -54,6 +61,20 @@ slots:
       - type: from_entity
         entity: num_platos
 
+  dieta:
+    type: text
+    influence_conversation: false
+    mappings:
+      - type: from_entity
+        entity: dieta
+
+  nutriente:
+    type: text
+    influence_conversation: false
+    mappings:
+      - type: from_entity
+        entity: nutriente
+
 responses:
   utter_bocadillo:
     - text: "Puedes preparar un bocadillo."
@@ -70,18 +91,11 @@ responses:
   utter_sin_ingredientes:
     - text: "No tienes suficientes ingredientes, te recomiendo ir a un restaurante."
 
-
   utter_valor_nutricional:
     - text: "{platos}... qué rico. Ese plato está lleno de nutrientes."
 
   utter_ingredientes:
     - text: "Aquí tienes la lista de ingredientes recomendados."
-
-  utter_restricciones:
-    - text: "Te mostraré opciones que respetan tus restricciones."
-
-  utter_sabores:
-    - text: "Aquí tienes un plato con ese sabor que te gusta."
 
   utter_listacompras:
     - text: "Claro, aquí te digo los ingredientes que debes comprar."
@@ -98,15 +112,8 @@ responses:
   utter_iamabot:
     - text: "Soy un chef de la Ugr."
 
-  utter_cheer_up:
-    - text: "Here is something to cheer you up:"
-      image: "https://i.imgur.com/nGF1K8f.jpg"
-
-  utter_did_that_help:
-    - text: "Did that help you?"
-
-  utter_happy:
-    - text: "Great, carry on!"
+  utter_fallback:
+    - text: "Lo siento... con eso no te puedo ayudar, pero ¿qué tal si planificamos tu menú semanal para compensar? ¿Te gustaría? :)"
 
 session_config:
   session_expiration_time: 60
