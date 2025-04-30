@@ -1,4 +1,4 @@
-# 🥪 BOTcadillo
+# BOTcadillo
 
 **BOTcadillo** es un chatbot gastronómico creado con [Rasa](https://rasa.com/) que te ayuda a planificar tus comidas, recomendarte recetas según tu dieta, sugerir platos con los ingredientes que tienes y generar planes semanales personalizados. Además, puede informarte sobre el valor nutricional de diferentes platos y generar listas de compras.
 
@@ -12,7 +12,7 @@
 - **Análisis nutricional** de platos comunes.
 - **Meal prep semanal** según ingredientes y dieta.
 - **Respuestas naturales** para saludar, despedir y mantener una conversación amigable.
-- **Fallback amigable** para cuando el bot no entiende algo: "Lo siento... con eso no te puedo ayudar, pero ¿qué tal si planificamos tu menú semanal para compensar? 😊"
+- **Fallback amigable** para cuando el bot no entiende algo: "Lo siento... con eso no te puedo ayudar, pero ¿qué tal si planificamos tu menú semanal para compensar?"
 
 ---
 
